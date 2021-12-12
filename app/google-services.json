@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "215525458608",
+    "project_id": "switchmarketapp",
+    "storage_bucket": "switchmarketapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:215525458608:android:61f6ed374c5a5ec0bcf175",
+        "android_client_info": {
+          "package_name": "com.example.swichmarketapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "215525458608-mrlif6rkrjs0l5lksdkrmitooc61ibt7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcSo9Rth6u3YrJuXJTmotUebBVgjh2fPQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "215525458608-mrlif6rkrjs0l5lksdkrmitooc61ibt7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
