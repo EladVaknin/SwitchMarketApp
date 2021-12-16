@@ -4,10 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/User/AndroidStudioProjects/SwichMarketApp/app/src/main/res/layout/activity_admin.xml" value="0.10371376811594203" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/SwichMarketApp/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/SwichMarketApp/app/src/main/res/layout/activity_login.xml" value="0.14666666666666667" />
         <entry key="..\:/Users/User/AndroidStudioProjects/SwichMarketApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/User/AndroidStudioProjects/SwichMarketApp/app/src/main/res/layout/activity_prof.xml" value="0.17889492753623187" />
         <entry key="..\:/Users/User/AndroidStudioProjects/SwichMarketApp/app/src/main/res/layout/activity_profile.xml" value="0.17889492753623187" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/SwichMarketApp/app/src/main/res/layout/activity_register.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/User/AndroidStudioProjects/SwichMarketApp/app/src/main/res/layout/register_activity.xml" value="0.1" />
       </map>
     </option>

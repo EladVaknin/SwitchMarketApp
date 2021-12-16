@@ -1,8 +1,8 @@
-package com.example.swichmarketapp;
+package com.example.swichmarketapp.models;
 
 public class User {
     String UserName;
-    String Email;
+    String mEmail;
     String Adress;
     String Phone;
     String Picture;
@@ -11,24 +11,31 @@ public class User {
     int counter;
     String admin;
 
-    public User (String UserName,String Email,String Adress,String Phone,String Picture,String id,double rating,int counter,String admin){
-        this.Adress =Adress;
-        this.counter = counter;
-        this.id=id;
-        this.Picture=Picture;
-        this.UserName=UserName;
-        this.Email=Email;
-        this.Phone=Phone;
-        this.rating=rating;
-        this.counter=counter;
-        this.admin=admin;
-    }
-    public String getEmail() {
-        return Email;
+    public User(String email, String userName, String phoneNumber) {
+        this.mEmail = email;
+        this.UserName = userName;
+        this.Phone = phoneNumber;
     }
 
-    public void setEmail(String email) {
-        Email = email;
+    public User(String UserName, String Email, String Adress, String Phone, String Picture, String id, double rating, int counter, String admin) {
+        this.Adress = Adress;
+        this.counter = counter;
+        this.id = id;
+        this.Picture = Picture;
+        this.UserName = UserName;
+        this.mEmail = Email;
+        this.Phone = Phone;
+        this.rating = rating;
+        this.counter = counter;
+        this.admin = admin;
+    }
+
+    public String getmEmail() {
+        return mEmail;
+    }
+
+    public void setmEmail(String mEmail) {
+        this.mEmail = mEmail;
     }
 
     public String getAdress() {
@@ -78,6 +85,7 @@ public class User {
     public void setCounter(int counter) {
         this.counter = counter;
     }
+
     public String getUserName() {
         return UserName;
     }
