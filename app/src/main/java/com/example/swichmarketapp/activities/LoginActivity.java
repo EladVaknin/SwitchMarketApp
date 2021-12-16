@@ -40,8 +40,6 @@ public class LoginActivity extends AppCompatActivity {
         mRegisterButton.setOnClickListener(v -> redirectToRegisterScreen());
     }
 
-
-
     private void performLogin() {
         String email = mEmailEditText.getText().toString().trim();
         String password = mPasswordEditText.getText().toString().trim();
