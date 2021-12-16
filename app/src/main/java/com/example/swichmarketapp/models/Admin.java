@@ -1,8 +1,10 @@
-package com.example.swichmarketapp;
+package com.example.swichmarketapp.models;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.swichmarketapp.R;
 
 public class Admin extends AppCompatActivity {
     @Override
