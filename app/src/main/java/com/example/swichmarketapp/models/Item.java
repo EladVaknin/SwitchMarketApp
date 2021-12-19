@@ -5,6 +5,13 @@ public class Item {
     private String Photo;
     private String tosWitch;
     private String price;
+    private String ImageUrl;
+
+
+    public Item (String description,String ImageURL){
+        this.ImageUrl =ImageURL;
+        this.description =description;
+    }
 
 
     public Item (String description, String photo, String tosWitch, String price){

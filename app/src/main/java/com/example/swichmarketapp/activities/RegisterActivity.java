@@ -45,7 +45,7 @@ public class RegisterActivity extends AppCompatActivity {
         String phone = mPhoneEditText.getText().toString();
         String userName = mUserNameEditText.getText().toString();
         if (TextUtils.isEmpty(userName) || TextUtils.isEmpty(phone)) {
-            Toast.makeText(this, "Username or phone  empty", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Username or phone is  empty", Toast.LENGTH_SHORT).show();
             return;
         }
 

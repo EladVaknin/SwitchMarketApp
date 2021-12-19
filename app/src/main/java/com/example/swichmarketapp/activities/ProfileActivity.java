@@ -1,10 +1,13 @@
 package com.example.swichmarketapp.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -77,6 +80,59 @@ public class ProfileActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+
+        // init the fields
+        allname.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String  x = dataSnapshot.getValue().toString();
+                mFullName.setText(x);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+        allemail.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String  x = dataSnapshot.getValue().toString();
+                mEmail.setText(x);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+        allphone.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String  x = dataSnapshot.getValue().toString();
+                mPhone.setText(x);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+        allrat.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String  x = dataSnapshot.getValue().toString()+"";
+                int r = Integer.parseInt(x);
+                Toast.makeText(ProfileActivity.this,x+r, Toast.LENGTH_LONG).show();
+                mRating.setRating(r);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+//        mImage.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(getApplicationContext(),Storage.class));
+//
+//                String uploadId = mDatabaseRef.push().getKey();
+//
+//            }});
+
 
 
     }

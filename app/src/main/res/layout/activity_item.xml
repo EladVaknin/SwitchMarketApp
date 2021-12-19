@@ -5,14 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/uploadPhotoButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="144dp"
-        tools:layout_editor_absoluteY="114dp"
-        tools:srcCompat="@tools:sample/avatars" />
-
     <EditText
         android:id="@+id/editTextDescription"
         android:layout_width="wrap_content"
@@ -20,8 +12,8 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Descrripton"
-        tools:layout_editor_absoluteX="101dp"
-        tools:layout_editor_absoluteY="30dp" />
+        tools:layout_editor_absoluteX="185dp"
+        tools:layout_editor_absoluteY="615dp" />
 
     <EditText
         android:id="@+id/editTextPrice"
@@ -30,8 +22,8 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="price"
-        tools:layout_editor_absoluteX="83dp"
-        tools:layout_editor_absoluteY="264dp" />
+        tools:layout_editor_absoluteX="185dp"
+        tools:layout_editor_absoluteY="670dp" />
 
     <EditText
         android:id="@+id/editTextSwitch"
@@ -40,6 +32,39 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="I want to switch.."
-        tools:layout_editor_absoluteX="83dp"
-        tools:layout_editor_absoluteY="325dp" />
+        tools:layout_editor_absoluteX="185dp"
+        tools:layout_editor_absoluteY="557dp" />
+
+    <ImageView
+        android:id="@+id/ItemimageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="254dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/ChoseFileButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chose File"
+        tools:layout_editor_absoluteX="289dp"
+        tools:layout_editor_absoluteY="24dp" />
+
+    <Button
+        android:id="@+id/UploadButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload"
+        tools:layout_editor_absoluteX="34dp"
+        tools:layout_editor_absoluteY="652dp" />
+
+    <ProgressBar
+        android:id="@+id/progressBarItem"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="182dp"
+        tools:layout_editor_absoluteY="421dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
