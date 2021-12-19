@@ -11,7 +11,8 @@ public class User {
     int counter;
     String admin;
 
-    public User(String email, String userName, String phoneNumber) {
+    public User(String id ,String email, String userName, String phoneNumber) {
+        this.id =id;
         this.mEmail = email;
         this.UserName = userName;
         this.Phone = phoneNumber;

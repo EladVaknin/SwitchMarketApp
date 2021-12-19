@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/passwordEditText"
         android:layout_centerHorizontal="true"
-        android:text="Button"
+        android:text="Sign in"
         tools:layout_editor_absoluteX="155dp"
         tools:layout_editor_absoluteY="471dp" />
 

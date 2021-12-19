@@ -39,6 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void performRegister() {
+        String id = mAuth.getCurrentUser().getUid();
         String email = mEmailEditText.getText().toString();
         String password = mPasswordEditText.getText().toString();
         String phone = mPhoneEditText.getText().toString();
@@ -54,7 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
                 handleProgressBar(false);
                 if (task.isSuccessful()) {
-                    User user = new User(email, userName, phone);
+                    User user = new User(id,email, userName, phone);
                     mDbUser.child(userName).setValue(user);
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 } else {
