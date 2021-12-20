@@ -35,8 +35,8 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         initViews();
         initFireBase();
-
     }
+
     private void initViews() {
         mFullName =findViewById(R.id.ProfileUserNAmeTextView);
         mEmail =findViewById(R.id.ProfileTextViewPhone);
@@ -46,18 +46,22 @@ public class ProfileActivity extends AppCompatActivity {
         mRating =findViewById(R.id.ProfileratingBar);
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
     }
+
     private void initFireBase() {
         FirebaseUser take_id= FirebaseAuth.getInstance().getCurrentUser();
         String userId= take_id.getUid();
-        DatabaseReference user = FirebaseDatabase.getInstance().getReference("users");
+        DatabaseReference user = FirebaseDatabase.getInstance().getReference(RegisterActivity.USERS_TABLE);
         DatabaseReference user1 = user.child(userId);
         //pull fields
         DatabaseReference allname = user1.child("userName");
         DatabaseReference allemail = user1.child("mEmail");
         DatabaseReference allphone = user1.child("phone");
         DatabaseReference allrat = user1.child("rating");
-        // upload the profile picture
-        DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("users").child(userId).child("picture");
+
+
+
+        // pull the profile picture
+//        DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("users").child(userId).child("picture");
 //        db.addValueEventListener(new ValueEventListener() {
 //            @Override
 //            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -76,9 +80,10 @@ public class ProfileActivity extends AppCompatActivity {
 //            public void onCancelled(@NonNull DatabaseError error) {
 //            }
 //        });
-//
-//
-//        // init the fields
+
+
+        // pull the fields
+
 //        allname.addValueEventListener(new ValueEventListener() {
 //            @Override
 //            public void onDataChange(DataSnapshot dataSnapshot) {
@@ -127,7 +132,7 @@ public class ProfileActivity extends AppCompatActivity {
 //        mImage.setOnClickListener(new View.OnClickListener(){
 //            @Override
 //            public void onClick(View v) {
-//                startActivity(new Intent(getApplicationContext(),Storage.class));
+//                startActivity(new Intent(getApplicationContext(),ItemActivity.class));
 //
 //                String uploadId = mDatabaseRef.push().getKey();
 //

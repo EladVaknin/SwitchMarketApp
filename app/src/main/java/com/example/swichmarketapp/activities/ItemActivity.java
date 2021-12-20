@@ -99,15 +99,6 @@ public class ItemActivity extends AppCompatActivity {
     }
 
 
-
-
-
-
-
-
-
-
-
     private void uploadFile() {
         if (mImageUri != null)
         {
