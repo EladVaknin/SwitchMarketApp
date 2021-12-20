@@ -4,45 +4,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animationCache="false"
+    android:background="@color/blackish_blue"
     tools:context=".activities.MainActivity">
+
 
     <Button
         android:id="@+id/Searchbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="158dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="587dp"
+        android:ems="10"
         android:text="Search"
+        app:iconTint="@color/black"
         tools:layout_editor_absoluteX="56dp"
         tools:layout_editor_absoluteY="323dp" />
 
     <Button
         android:id="@+id/Logoutbutton"
-        android:layout_width="wrap_content"
+        android:layout_width="136dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="143dp"
+        android:layout_marginTop="278dp"
+        android:layout_marginEnd="132dp"
+        android:layout_marginBottom="397dp"
+        android:ems="10"
         android:text="Logout"
         tools:layout_editor_absoluteX="143dp"
         tools:layout_editor_absoluteY="445dp" />
 
-
-    <Button
-        android:id="@+id/profileButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="profile"
-        tools:layout_editor_absoluteX="273dp"
-        tools:layout_editor_absoluteY="323dp" />
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarbutton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:layout_width="86dp"
+        android:layout_height="74dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-6dp"
+        android:layout_marginTop="-1dp"
+        android:layout_marginEnd="331dp"
+        android:ems="10"
+        android:layout_marginBottom="658dp"
+        android:background="@color/blackish_blue"
         android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
+        android:theme="?attr/actionBarTheme"
+        app:logo="@drawable/applogo"
+        app:titleTextColor="#FFFFFF" />
 
     <Button
         android:id="@+id/addItemButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Item" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="174dp"
+        android:layout_marginEnd="149dp"
+        android:layout_marginBottom="509dp"
+        android:text="add Item" />
+
+    <Button
+        android:id="@+id/profileButton"
+        android:layout_width="wrap_content"
+        android:layout_height="64dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="150dp"
+        android:layout_marginEnd="146dp"
+        android:layout_marginBottom="253dp"
+        android:text="profile"
+        tools:layout_editor_absoluteX="273dp"
+        tools:layout_editor_absoluteY="323dp" />
 
 </RelativeLayout>

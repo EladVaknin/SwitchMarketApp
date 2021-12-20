@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/blackish_blue">
 
     <TextView
         android:id="@+id/header"
@@ -10,18 +12,26 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="Register"
-        android:textSize="30sp" />
+        android:textAlignment="center"
+        android:textSize="34sp"
+        android:textStyle="bold|italic" />
+
 
     <EditText
         android:id="@+id/emailEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/header"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="78dp"
+        android:layout_marginEnd="103dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
+        android:textColor="#FFFFFF"
         tools:layout_editor_absoluteX="97dp"
         tools:layout_editor_absoluteY="251dp" />
 
@@ -30,44 +40,67 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/emailEditText"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="99dp"
         android:ems="10"
         android:hint="Phone numbre"
         android:inputType="phone"
-        android:minHeight="48dp" />
+        android:minHeight="48dp"
+        android:textColor="#FFFFFF" />
 
     <EditText
         android:id="@+id/userNameEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/phoneEditText"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="101dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="99dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="userName" />
+        android:text="userName"
+        android:textColor="#FFFFFF" />
 
     <EditText
         android:id="@+id/passwordEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/userNameEditText"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="97dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="104dp"
         android:ems="10"
         android:hint="password"
         android:inputType="textPassword"
-        android:minHeight="48dp" />
+        android:minHeight="48dp"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/registerButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="66dp"
         android:layout_below="@id/passwordEditText"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="163dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="158dp"
+        android:layout_marginBottom="207dp"
+        android:background="#3F51B5"
         android:text="Sign in"
+        app:iconTint="#FFFFFF"
         tools:layout_editor_absoluteX="155dp"
         tools:layout_editor_absoluteY="471dp" />
-
 
     <ProgressBar
         android:id="@+id/progressBar"

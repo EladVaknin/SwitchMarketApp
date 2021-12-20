@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private void initViews() {
         mLogoutButton = findViewById(R.id.Logoutbutton);
         mProfileButton =findViewById(R.id.profileButton);
-        mSearchButton =findViewById(R.id.profileButton);
+        mSearchButton =findViewById(R.id.Searchbutton);
         mAddItemButton =findViewById(R.id.addItemButton);
 //        mToolbar =findViewById(R.id.toolbarbutton);
         mProfileButton.setOnClickListener(v -> redirectToProfileScreen());

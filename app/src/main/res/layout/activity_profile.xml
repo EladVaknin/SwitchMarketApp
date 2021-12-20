@@ -3,44 +3,72 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/blackish_blue"
+    android:backgroundTint="@color/blackish_blue">
 
     <ImageView
         android:id="@+id/ProfileimageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="136dp"
-        tools:layout_editor_absoluteY="72dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:layout_width="280dp"
+        android:layout_height="210dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/blackish_blue"
+        app:layout_constraintBottom_toTopOf="@+id/ProfileUserNAmeTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/profile" />
 
     <TextView
         android:id="@+id/ProfileUserNAmeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="111dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="7dp"
         android:text="UserName"
-        tools:layout_editor_absoluteX="171dp"
-        tools:layout_editor_absoluteY="243dp" />
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/ProfileratingBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ProfileimageView" />
 
     <RatingBar
         android:id="@+id/ProfileratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="290dp" />
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="45dp"
+        app:layout_constraintBottom_toTopOf="@+id/ProfileTextViewEmail"
+        app:layout_constraintStart_toStartOf="@+id/ProfileimageView"
+        app:layout_constraintTop_toBottomOf="@+id/ProfileUserNAmeTextView" />
 
     <TextView
         android:id="@+id/ProfileTextViewEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="141dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:lineSpacingExtra="14sp"
         android:text="Email"
-        tools:layout_editor_absoluteX="173dp"
-        tools:layout_editor_absoluteY="401dp" />
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/ProfileTextViewPhone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ProfileratingBar" />
 
     <TextView
         android:id="@+id/ProfileTextViewPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="141dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="239dp"
         android:text="Phone"
-        tools:layout_editor_absoluteX="173dp"
-        tools:layout_editor_absoluteY="459dp" />
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ProfileTextViewEmail" />
 </androidx.constraintlayout.widget.ConstraintLayout>

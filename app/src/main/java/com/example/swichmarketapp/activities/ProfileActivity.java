@@ -36,9 +36,6 @@ public class ProfileActivity extends AppCompatActivity {
         initViews();
         initFireBase();
 
-
-
-
     }
     private void initViews() {
         mFullName =findViewById(R.id.ProfileUserNAmeTextView);
@@ -61,69 +58,72 @@ public class ProfileActivity extends AppCompatActivity {
         DatabaseReference allrat = user1.child("rating");
         // upload the profile picture
         DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("users").child(userId).child("picture");
-        db.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                try {
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        temp = snapshot.child("imageUrl").getValue().toString();
-                   //     Picasso.get().load(temp).into(mImage);
+//        db.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                try {
+//                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//                        temp = snapshot.child("imageUrl").getValue().toString();
+//                   //     Picasso.get().load(temp).into(mImage);
+//
+//                        break;
+//                    }
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//            }
+//        });
+//
+//
+//        // init the fields
+//        allname.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                String  x = dataSnapshot.getValue().toString();
+//                mFullName.setText(x);
+//            }
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//            }
+//        });
+//        allemail.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                String  x = dataSnapshot.getValue().toString();
+//                mEmail.setText(x);
+//            }
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//            }
+//        });
+//
+//        allphone.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                String  x = dataSnapshot.getValue().toString();
+//                mPhone.setText(x);
+//            }
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//            }
+//        });
+//
+//        allrat.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                String  x = dataSnapshot.getValue().toString()+"";
+//                int r = Integer.parseInt(x);
+//                Toast.makeText(ProfileActivity.this,x+r, Toast.LENGTH_LONG).show();
+//                mRating.setRating(r);
+//            }
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//            }
+//        });
 
-                        break;
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
-
-        // init the fields
-        allname.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String  x = dataSnapshot.getValue().toString();
-                mFullName.setText(x);
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-        allemail.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String  x = dataSnapshot.getValue().toString();
-                mEmail.setText(x);
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-        allphone.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String  x = dataSnapshot.getValue().toString();
-                mPhone.setText(x);
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-        allrat.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String  x = dataSnapshot.getValue().toString()+"";
-                int r = Integer.parseInt(x);
-                Toast.makeText(ProfileActivity.this,x+r, Toast.LENGTH_LONG).show();
-                mRating.setRating(r);
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
 //        mImage.setOnClickListener(new View.OnClickListener(){
 //            @Override
 //            public void onClick(View v) {
