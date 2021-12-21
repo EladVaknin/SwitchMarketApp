@@ -18,8 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
 
-    //m = member
-    private Button mLoginButton, mRegisterButton;
+    private Button mLoginButton, mRegisterButton ,mUpdateToPremiumButtonLogin;
     private EditText mEmailEditText, mPasswordEditText;
 
     private final FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -32,12 +31,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void initViews() {
+        mUpdateToPremiumButtonLogin = findViewById(R.id.UpdateToPrimiumLogin);
         mEmailEditText = (EditText) findViewById(R.id.editTextTextEmailAddress);
         mPasswordEditText = (EditText) findViewById(R.id.editTextNumberPassword);
         mLoginButton = (Button) findViewById(R.id.Loginbutton);
         mLoginButton.setOnClickListener(v -> performLogin());
         mRegisterButton = (Button) findViewById(R.id.Registerbutton);
         mRegisterButton.setOnClickListener(v -> redirectToRegisterScreen());
+        mUpdateToPremiumButtonLogin.setOnClickListener(v -> redirectToPremiumRegister());
     }
 
     private void performLogin() {
@@ -68,6 +69,10 @@ public class LoginActivity extends AppCompatActivity {
 
     public void redirectToRegisterScreen() {
         Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+        startActivity(intent);
+    }
+    public void redirectToPremiumRegister() {
+        Intent intent = new Intent(LoginActivity.this, RegisterPremiumActivity.class);
         startActivity(intent);
     }
 

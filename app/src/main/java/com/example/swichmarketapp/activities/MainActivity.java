@@ -1,6 +1,5 @@
 package com.example.swichmarketapp.activities;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,14 +9,12 @@ import android.widget.Toolbar;
 
 import com.example.swichmarketapp.R;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
     private  Button mSearchButton ,mProfileButton ,mLogoutButton ,mAddItemButton;
+    private Button mUpdateToPremiumButton;
     private Toolbar mToolbar;
     private final DatabaseReference mDbUser = FirebaseDatabase.getInstance().getReference(RegisterActivity.USERS_TABLE);
 
@@ -28,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         initViews();
     }
     private void initViews() {
+        mUpdateToPremiumButton =findViewById(R.id.UpdateToPremiumButton);
         mLogoutButton = findViewById(R.id.Logoutbutton);
         mProfileButton =findViewById(R.id.profileButton);
         mSearchButton =findViewById(R.id.Searchbutton);
@@ -37,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         mLogoutButton.setOnClickListener(v -> redirectToLogout());
         mSearchButton.setOnClickListener(v -> redirectToSearch());
         mAddItemButton.setOnClickListener(v -> redirectToAddItemScreen());
+        mUpdateToPremiumButton.setOnClickListener(v -> redirectToPremiumRegister());
     }
     public void redirectToProfileScreen() {
         Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
@@ -49,9 +48,15 @@ public class MainActivity extends AppCompatActivity {
     }
     public void redirectToSearch(){
           /// implement of search items
+        Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+        startActivity(intent);
     }
     public void redirectToAddItemScreen() {
         Intent intent = new Intent(MainActivity.this, ItemActivity.class);
+        startActivity(intent);
+    }
+    public void redirectToPremiumRegister() {
+        Intent intent = new Intent(MainActivity.this, RegisterPremiumActivity.class);
         startActivity(intent);
     }
 

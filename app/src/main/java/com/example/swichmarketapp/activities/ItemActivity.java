@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -34,7 +35,7 @@ public class ItemActivity extends AppCompatActivity {
     private ImageView mPhoto;
     private Button mUpload ,mChoseFile;
     private Uri mImageUri;
-    private ProgressBar mProgressBar;
+    private ProgressBar mProgressBar2;
     public static final String ITEM_TABLE = "items";
  //   private final DatabaseReference mDbItem = FirebaseDatabase.getInstance().getReference(RegisterActivity.ITEM_TABLE);
     DatabaseReference mDbItem ;
@@ -58,7 +59,7 @@ public class ItemActivity extends AppCompatActivity {
         mPricedEditText = (EditText) findViewById(R.id.editTextPrice);
         mSwitchEditText = (EditText) findViewById(R.id.editTextSwitch);
         mPhoto = findViewById(R.id.ItemimageView);
-        mProgressBar = findViewById(R.id.progressBarItem);
+        mProgressBar2 = findViewById(R.id.progressBarItem);
         mUpload.setOnClickListener(v -> UploadFileButton());
         mChoseFile.setOnClickListener(v -> ChoseFile());
     }
@@ -95,6 +96,7 @@ public class ItemActivity extends AppCompatActivity {
             Toast.makeText(ItemActivity.this, "Upload in progress", Toast.LENGTH_SHORT).show();
         } else {
             uploadFile();
+            handleProgressBar2(false);
         }
     }
 
@@ -162,5 +164,8 @@ public class ItemActivity extends AppCompatActivity {
         }
     }
 
+    private void handleProgressBar2(boolean shouldDisplay) {
+        mProgressBar2.setVisibility(shouldDisplay ? View.VISIBLE : View.INVISIBLE);
+    }
 
 }

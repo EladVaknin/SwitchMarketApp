@@ -35,10 +35,11 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="114dp"
-        android:layout_marginTop="532dp"
-        android:layout_marginEnd="141dp"
-        android:layout_marginBottom="93dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="593dp"
+        android:layout_marginEnd="129dp"
+        android:layout_marginBottom="32dp"
         android:ems="10"
         android:text="Logout"
         tools:layout_editor_absoluteX="143dp"
@@ -90,5 +91,14 @@
         android:text="profile"
         tools:layout_editor_absoluteX="273dp"
         tools:layout_editor_absoluteY="323dp" />
+
+    <Button
+        android:id="@+id/UpdateToPremiumButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="165dp"
+        android:text="Update To Premiun User" />
 
 </RelativeLayout>

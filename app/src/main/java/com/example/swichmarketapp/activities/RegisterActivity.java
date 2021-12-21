@@ -48,14 +48,13 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(this, "Username or phone is  empty", Toast.LENGTH_SHORT).show();
             return;
         }
-
-
         if (Utilitie.isEmailAndPasswordValid(this, email, password)) {
             handleProgressBar(true);
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
                 handleProgressBar(false);
                 if (task.isSuccessful()) {
                     User user = new User(id,email, userName, phone);
+                    // upload User Object to the firebase
                     mDbUser.child(userName).setValue(user);
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 } else {
