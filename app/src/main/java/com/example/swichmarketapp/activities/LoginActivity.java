@@ -4,21 +4,27 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.swichmarketapp.R;
+import com.example.swichmarketapp.utlities.CacheUtilities;
 import com.example.swichmarketapp.utlities.Utilitie;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private Button mLoginButton, mRegisterButton ,mUpdateToPremiumButtonLogin;
+    private final DatabaseReference mDbUser = FirebaseDatabase.getInstance().getReference(RegisterActivity.USERS_TABLE);
+    private Button mLoginButton, mRegisterButton, mUpdateToPremiumButtonLogin;
     private EditText mEmailEditText, mPasswordEditText;
 
     private final FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -29,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         initViews();
     }
+
 
     private void initViews() {
         mUpdateToPremiumButtonLogin = findViewById(R.id.UpdateToPrimiumLogin);
@@ -44,16 +51,10 @@ public class LoginActivity extends AppCompatActivity {
     private void performLogin() {
         String email = mEmailEditText.getText().toString().trim();
         String password = mPasswordEditText.getText().toString().trim();
-        if (Utilitie.isEmailAndPasswordValid(this,email, password)) {
-            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    } else {
-                        Toast.makeText(LoginActivity.this, task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                    }
-
+        if (Utilitie.isEmailAndPasswordValid(this, email, password)) {
+            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
+                if(task.isSuccessful()){
+                    getUserDetailsFromFireBaseAndRedirectToMainActivity();
                 }
             });
         }
@@ -62,18 +63,42 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-//        if (mAuth.getCurrentUser() != null) {
-//            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-//        }
+        if (mAuth.getCurrentUser() != null) {
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            finish();
+        }
     }
 
     public void redirectToRegisterScreen() {
         Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
         startActivity(intent);
     }
+
     public void redirectToPremiumRegister() {
         Intent intent = new Intent(LoginActivity.this, RegisterPremiumActivity.class);
         startActivity(intent);
+    }
+
+    private void getUserDetailsFromFireBaseAndRedirectToMainActivity() {
+        mDbUser.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot userSnapshot) {
+                CacheUtilities.cacheUserName(LoginActivity.this, (String) userSnapshot.child("userName").getValue());
+                CacheUtilities.cachePhoneNumber(LoginActivity.this, (String) userSnapshot.child("phone").getValue());
+                CacheUtilities.cacheRating(LoginActivity.this, ((Long)userSnapshot.child("rating").getValue()).floatValue());
+                if (userSnapshot.child("profileUrl").exists()) {
+                    CacheUtilities.cacheImageProfile(LoginActivity.this, (String) userSnapshot.child("profileUrl").getValue());
+                }
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                finish();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 
 

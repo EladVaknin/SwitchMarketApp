@@ -18,6 +18,10 @@ public class User {
         this.Phone = phoneNumber;
     }
 
+    public User(){
+
+    }
+
     public User(String UserName, String Email, String Adress, String Phone, String Picture, String id, double rating, int counter, String admin) {
         this.Adress = Adress;
         this.counter = counter;

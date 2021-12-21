@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.swichmarketapp.R;
 import com.example.swichmarketapp.models.User;
+import com.example.swichmarketapp.utlities.CacheUtilities;
 import com.example.swichmarketapp.utlities.Utilitie;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -21,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class RegisterActivity extends AppCompatActivity {
 
     public static final String USERS_TABLE = "users";
-//    public static final String ITEM_TABLE = "items";
+    //    public static final String ITEM_TABLE = "items";
     private EditText mUserNameEditText, mPasswordEditText, mEmailEditText, mPhoneEditText;
     private Button mRegisterButton;
     private ProgressBar mProgressBar;
@@ -39,7 +40,6 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void performRegister() {
-        String id = mAuth.getCurrentUser().getUid();
         String email = mEmailEditText.getText().toString();
         String password = mPasswordEditText.getText().toString();
         String phone = mPhoneEditText.getText().toString();
@@ -53,10 +53,12 @@ public class RegisterActivity extends AppCompatActivity {
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
                 handleProgressBar(false);
                 if (task.isSuccessful()) {
-                    User user = new User(id,email, userName, phone);
-                    // upload User Object to the firebase
-                    mDbUser.child(userName).setValue(user);
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    User user = new User(mAuth.getCurrentUser().getUid(), email, userName, phone);
+                    CacheUtilities.cacheUserName(this, userName);
+                    CacheUtilities.cachePhoneNumber(this, phone);
+                    mDbUser.child(mAuth.getCurrentUser().getUid()).setValue(user);
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    finish();
                 } else {
                     Toast.makeText(RegisterActivity.this, task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
