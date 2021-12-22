@@ -17,10 +17,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="369dp"
-        android:layout_marginEnd="229dp"
-        android:layout_marginBottom="263dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="278dp"
+        android:layout_marginEnd="220dp"
+        android:layout_marginBottom="354dp"
         android:ems="10"
         android:text="Search"
         app:iconTint="@color/black"
@@ -85,9 +85,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="144dp"
-        android:layout_marginEnd="152dp"
-        android:layout_marginBottom="384dp"
+        android:layout_marginStart="247dp"
+        android:layout_marginEnd="49dp"
+        android:layout_marginBottom="380dp"
         android:text="profile"
         tools:layout_editor_absoluteX="273dp"
         tools:layout_editor_absoluteY="323dp" />
@@ -100,5 +100,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="165dp"
         android:text="Update To Premiun User" />
+
+    <Button
+        android:id="@+id/switchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="77dp"
+        android:layout_marginTop="404dp"
+        android:text="Switch" />
 
 </RelativeLayout>

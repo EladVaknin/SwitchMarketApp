@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private Button mSearchButton, mProfileButton, mLogoutButton, mAddItemButton;
+    private Button mSwitchButton;
     private Button mUpdateToPremiumButton;
     private Toolbar mToolbar;
 
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void initViews() {
+        mSwitchButton =findViewById(R.id.switchButton);
+        mSwitchButton.setOnClickListener(v -> redirectToSwitch());
         mUpdateToPremiumButton = findViewById(R.id.UpdateToPremiumButton);
         mLogoutButton = findViewById(R.id.Logoutbutton);
         mProfileButton = findViewById(R.id.profileButton);
@@ -48,7 +51,11 @@ public class MainActivity extends AppCompatActivity {
         mUpdateToPremiumButton.setOnClickListener(v -> redirectToPremiumRegister());
     }
 
+    private void redirectToSwitch() {
+        Intent intent = new Intent(MainActivity.this, SwitchActivity.class);
+        startActivity(intent);
 
+    }
 
 
     public void redirectToProfileScreen() {
