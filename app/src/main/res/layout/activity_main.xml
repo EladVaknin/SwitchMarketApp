@@ -17,10 +17,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="53dp"
-        android:layout_marginTop="278dp"
-        android:layout_marginEnd="220dp"
-        android:layout_marginBottom="354dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="331dp"
+        android:layout_marginEnd="232dp"
+        android:layout_marginBottom="301dp"
         android:ems="10"
         android:text="Search"
         app:iconTint="@color/black"
@@ -53,10 +53,11 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="66dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="14dp"
         android:layout_marginEnd="83dp"
-        android:layout_marginBottom="476dp"
+        android:layout_marginBottom="495dp"
         android:background="@color/blackish_blue"
         android:ems="10"
         android:minHeight="?attr/actionBarSize"
@@ -72,10 +73,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="218dp"
-        android:layout_marginTop="374dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="263dp"
+        android:layout_marginStart="230dp"
+        android:layout_marginTop="420dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="217dp"
         android:text="add Item" />
 
     <Button
@@ -85,9 +86,10 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="247dp"
-        android:layout_marginEnd="49dp"
-        android:layout_marginBottom="380dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="254dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginBottom="326dp"
         android:text="profile"
         tools:layout_editor_absoluteX="273dp"
         tools:layout_editor_absoluteY="323dp" />
@@ -107,8 +109,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="77dp"
-        android:layout_marginTop="404dp"
+        android:layout_marginStart="73dp"
+        android:layout_marginTop="450dp"
         android:text="Switch" />
+
+    <Button
+        android:id="@+id/ChatButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp"
+        android:text="Chat" />
 
 </RelativeLayout>

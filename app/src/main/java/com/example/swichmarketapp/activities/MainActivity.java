@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private Button mSearchButton, mProfileButton, mLogoutButton, mAddItemButton;
-    private Button mSwitchButton;
+    private Button mSwitchButton ,mChat;
     private Button mUpdateToPremiumButton;
     private Toolbar mToolbar;
 
@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void initViews() {
+        mChat =findViewById(R.id.ChatButton);
+        mChat.setOnClickListener(v -> redirectToChat ());
         mSwitchButton =findViewById(R.id.switchButton);
         mSwitchButton.setOnClickListener(v -> redirectToSwitch());
         mUpdateToPremiumButton = findViewById(R.id.UpdateToPremiumButton);
@@ -49,6 +51,11 @@ public class MainActivity extends AppCompatActivity {
         mSearchButton.setOnClickListener(v -> redirectToSearch());
         mAddItemButton.setOnClickListener(v -> redirectToAddItemScreen());
         mUpdateToPremiumButton.setOnClickListener(v -> redirectToPremiumRegister());
+    }
+
+    private void redirectToChat() {
+        Intent intent = new Intent(MainActivity.this, MessengerActivity.class);
+        startActivity(intent);
     }
 
     private void redirectToSwitch() {

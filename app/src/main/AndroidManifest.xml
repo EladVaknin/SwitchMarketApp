@@ -24,6 +24,7 @@
         <activity android:name=".activities.RegisterPremiumActivity" />
         <activity android:name=".activities.SearchActivity" />
         <activity android:name=".activities.SwitchActivity" />
+        <activity android:name=".activities.MessengerActivity" />
     </application>
 
 </manifest>
