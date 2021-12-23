@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,117 +8,77 @@
     tools:context=".activities.MainActivity">
 
 
-    <Button
-        android:id="@+id/Searchbutton"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="331dp"
-        android:layout_marginEnd="232dp"
-        android:layout_marginBottom="301dp"
-        android:ems="10"
-        android:text="Search"
-        app:iconTint="@color/black"
-        tools:layout_editor_absoluteX="56dp"
-        tools:layout_editor_absoluteY="323dp" />
-
-    <Button
-        android:id="@+id/Logoutbutton"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="125dp"
-        android:layout_marginTop="593dp"
-        android:layout_marginEnd="129dp"
-        android:layout_marginBottom="32dp"
-        android:ems="10"
-        android:text="Logout"
-        tools:layout_editor_absoluteX="143dp"
-        tools:layout_editor_absoluteY="445dp" />
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarbutton"
+    <ImageView
+        android:id="@+id/logo_image"
         android:layout_width="262dp"
         android:layout_height="222dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="66dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="83dp"
-        android:layout_marginBottom="495dp"
-        android:background="@color/blackish_blue"
-        android:ems="10"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:logo="@drawable/applogo"
-        app:titleTextColor="#FFFFFF" />
+        android:background="@drawable/applogo" />
+
 
     <Button
-        android:id="@+id/addItemButton"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="230dp"
-        android:layout_marginTop="420dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="217dp"
-        android:text="add Item" />
-
-    <Button
-        android:id="@+id/profileButton"
-        android:layout_width="wrap_content"
-        android:layout_height="64dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="254dp"
-        android:layout_marginEnd="42dp"
-        android:layout_marginBottom="326dp"
-        android:text="profile"
-        tools:layout_editor_absoluteX="273dp"
-        tools:layout_editor_absoluteY="323dp" />
-
-    <Button
-        android:id="@+id/UpdateToPremiumButton"
+        android:id="@+id/chat_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/logo_image"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="165dp"
-        android:text="Update To Premiun User" />
-
-    <Button
-        android:id="@+id/switchButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="73dp"
-        android:layout_marginTop="450dp"
-        android:text="Switch" />
-
-    <Button
-        android:id="@+id/ChatButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="10dp"
         android:text="Chat" />
+
+
+    <RelativeLayout
+        android:id="@+id/rel1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/chat_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:id="@+id/search_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search" />
+
+        <Button
+            android:id="@+id/add_item_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/search_button"
+            android:text="Add item" />
+
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/profile_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rel1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Profile" />
+
+
+    <Button
+        android:id="@+id/update_to_premium_user_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profile_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Update to premium user" />
+
+
+    <Button
+        android:id="@+id/logout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/update_to_premium_user_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Logout" />
+
 
 </RelativeLayout>

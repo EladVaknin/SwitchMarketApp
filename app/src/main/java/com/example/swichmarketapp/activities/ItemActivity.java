@@ -73,7 +73,7 @@ public class ItemActivity extends AppCompatActivity {
 
     private void uploadFile() {
 
-        if (mUriImage == null || TextUtils.isEmpty(mDescriptionEditText.getText()) || TextUtils.isEmpty(mPricedEditText.getText())) {
+        if (mUriImage == null || TextUtils.isEmpty(mDescriptionEditText.getText().toString()) || TextUtils.isEmpty(mPricedEditText.getText().toString()) || TextUtils.isEmpty(mSwitchEditText.getText().toString())) {
             Toast.makeText(this, "Please fill all relevatns fields/choose image", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -93,16 +93,16 @@ public class ItemActivity extends AppCompatActivity {
             if (task.isSuccessful()) {
                 Map<String, String> itemMap = new HashMap<>();
                 itemMap.put("desc", desc);
+                itemMap.put("toSwitch", mSwitchEditText.getText().toString());
                 itemMap.put("price", price);
                 itemMap.put("imageItem", task.getResult().toString());
                 mDbUser.child(FirebaseAuth.getInstance().getUid()).child("items").child(randomUUid).setValue(itemMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             Toast.makeText(ItemActivity.this, "Item uploaded", Toast.LENGTH_SHORT).show();
                             finish();
-                        }
-                        else{
+                        } else {
                             handleProgressBar(false);
                             Toast.makeText(ItemActivity.this, "Failed to upload", Toast.LENGTH_SHORT).show();
                         }

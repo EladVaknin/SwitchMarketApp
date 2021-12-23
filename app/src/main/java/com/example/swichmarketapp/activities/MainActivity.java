@@ -1,29 +1,19 @@
 package com.example.swichmarketapp.activities;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.Toolbar;
 
 import com.example.swichmarketapp.R;
 import com.example.swichmarketapp.utlities.CacheUtilities;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
 
-    private Button mSearchButton, mProfileButton, mLogoutButton, mAddItemButton;
-    private Button mSwitchButton ,mChat;
-    private Button mUpdateToPremiumButton;
-    private Toolbar mToolbar;
+    private Button mSearchButton, mProfileButton, mLogoutButton, mAddItemButton, mChat, mUpdateToPremiumButton;
 
 
     @Override
@@ -34,18 +24,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     private void initViews() {
-        mChat =findViewById(R.id.ChatButton);
-        mChat.setOnClickListener(v -> redirectToChat ());
-        mSwitchButton =findViewById(R.id.switchButton);
-        mSwitchButton.setOnClickListener(v -> redirectToSwitch());
-        mUpdateToPremiumButton = findViewById(R.id.UpdateToPremiumButton);
-        mLogoutButton = findViewById(R.id.Logoutbutton);
-        mProfileButton = findViewById(R.id.profileButton);
-        mSearchButton = findViewById(R.id.Searchbutton);
-        mAddItemButton = findViewById(R.id.addItemButton);
-//        mToolbar =findViewById(R.id.toolbarbutton);
+        mChat = findViewById(R.id.chat_button);
+        mChat.setOnClickListener(v -> redirectToActivity(MessengerActivity.class));
+        mUpdateToPremiumButton = findViewById(R.id.update_to_premium_user_button);
+        mLogoutButton = findViewById(R.id.logout_button);
+        mProfileButton = findViewById(R.id.profile_button);
+        mSearchButton = findViewById(R.id.search_button);
+        mAddItemButton = findViewById(R.id.add_item_button);
         mProfileButton.setOnClickListener(v -> redirectToProfileScreen());
         mLogoutButton.setOnClickListener(v -> redirectToLogout());
         mSearchButton.setOnClickListener(v -> redirectToSearch());
@@ -53,15 +39,10 @@ public class MainActivity extends AppCompatActivity {
         mUpdateToPremiumButton.setOnClickListener(v -> redirectToPremiumRegister());
     }
 
-    private void redirectToChat() {
-        Intent intent = new Intent(MainActivity.this, MessengerActivity.class);
-        startActivity(intent);
-    }
 
-    private void redirectToSwitch() {
-        Intent intent = new Intent(MainActivity.this, SwitchActivity.class);
+    private void redirectToActivity(Class<?> cls) {
+        Intent intent = new Intent(MainActivity.this, cls);
         startActivity(intent);
-
     }
 
 
@@ -79,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void redirectToSearch() {
-        /// implement of search items
         Intent intent = new Intent(MainActivity.this, SearchActivity.class);
         startActivity(intent);
     }
@@ -93,19 +73,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, RegisterPremiumActivity.class);
         startActivity(intent);
     }
-
-
-//       mDbUser.child("mor").addListenerForSingleValueEvent(new ValueEventListener() {
-//           @Override
-//           public void onDataChange(@NonNull DataSnapshot snapshot) {
-//               snapshot.getValue();
-//           }
-//
-//           @Override
-//           public void onCancelled(@NonNull DatabaseError error) {
-//
-//           }
-//       });
 
 
 }

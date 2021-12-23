@@ -16,6 +16,15 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/SwichMarketApp/app/src/main/res/layout/activity_search.xml" value="0.13722826086956522" />
         <entry key="..\:/Users/User/AndroidStudioProjects/SwichMarketApp/app/src/main/res/layout/activity_switch.xml" value="0.1539855072463768" />
         <entry key="..\:/Users/User/AndroidStudioProjects/SwichMarketApp/app/src/main/res/layout/register_activity.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.20364583333333333" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.228125" />
+        <entry key="app/src/main/res/layout/activity_message.xml" value="0.24427083333333333" />
+        <entry key="app/src/main/res/layout/activity_premium_user.xml" value="0.271286231884058" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.271286231884058" />
+        <entry key="app/src/main/res/layout/activity_search.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/item_row.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/reciver_message.xml" value="0.25833333333333336" />
+        <entry key="app/src/main/res/layout/sent_message.xml" value="0.25833333333333336" />
       </map>
     </option>
   </component>

@@ -1,42 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blackish_blue">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="223dp"
+        android:layout_height="220dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/applogo" />
+
     <EditText
         android:id="@+id/editTextTextEmailAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="96dp"
+        android:layout_below="@id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:textColor="#000000"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumberPassword"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:textStyle="italic" />
 
     <EditText
         android:id="@+id/editTextNumberPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/editTextTextEmailAddress"
+        android:layout_centerHorizontal="true"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="80dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="numberPassword"
         android:minHeight="48dp"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/Loginbutton"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:textColor="#000000" />
 
     <Button
         android:id="@+id/Loginbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/editTextNumberPassword"
+        android:layout_centerHorizontal="true"
         android:layout_marginEnd="160dp"
         android:layout_marginBottom="44dp"
         android:text="Login"
@@ -47,40 +56,21 @@
         android:id="@+id/Registerbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="144dp"
-        android:layout_marginBottom="132dp"
-        android:text="Register"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_below="@id/Loginbutton"
+        android:layout_centerHorizontal="true"
+        android:text="Register" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@color/blackish_blue"
-        tools:ignore="MissingConstraints">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="223dp"
-            android:layout_height="220dp"
-            android:layout_centerInParent="true"
-            android:background="@drawable/applogo"
-            tools:layout_editor_absoluteX="106dp"
-            tools:layout_editor_absoluteY="101dp" />
-
-    </RelativeLayout>
 
     <Button
         android:id="@+id/UpdateToPrimiumLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/Registerbutton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
         android:text="Update To Premium User"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="615dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

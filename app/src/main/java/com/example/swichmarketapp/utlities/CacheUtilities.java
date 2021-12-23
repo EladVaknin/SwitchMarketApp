@@ -29,7 +29,6 @@ public class CacheUtilities {
 
     public static String getUserName(Activity activity) {
         SharedPreferences prefs = activity.getSharedPreferences(USER_FILE, MODE_PRIVATE);
-
         return prefs.getString(USER_NAME_KEY, "");
 
     }
@@ -49,7 +48,7 @@ public class CacheUtilities {
 
     public static void clearAll(Activity activity) {
         SharedPreferences.Editor editor = activity.getSharedPreferences(USER_FILE, MODE_PRIVATE).edit();
-        editor.clear();
+        editor.clear().apply();
     }
 
     public static String getImageProfile(Activity activity) {

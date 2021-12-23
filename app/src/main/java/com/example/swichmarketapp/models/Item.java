@@ -1,24 +1,24 @@
 package com.example.swichmarketapp.models;
 
 public class Item {
-    private String description ;
+    private String description;
     private String Photo;
     private String tosWitch;
     private String price;
     private String ImageUrl;
+    private String user;
 
 
-    public Item (String description,String ImageURL){
-        this.ImageUrl =ImageURL;
-        this.description =description;
+    public Item(String description, String photo, String tosWitch, String price, String user) {
+        this.description = description;
+        this.Photo = photo;
+        this.tosWitch = tosWitch;
+        this.price = price;
+        this.user = user;
     }
 
-
-    public Item (String description, String photo, String tosWitch, String price){
-        this.description =description;
-        this.Photo=photo;
-        this.tosWitch=tosWitch;
-        this.price=price;
+    public String getUser() {
+        return user;
     }
 
     public String getDescription() {
@@ -44,6 +44,7 @@ public class Item {
     public void setPrice(String price) {
         this.price = price;
     }
+
     public String getTosWitch() {
         return tosWitch;
     }

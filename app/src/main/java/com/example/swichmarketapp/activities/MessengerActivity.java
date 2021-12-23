@@ -1,57 +1,109 @@
 package com.example.swichmarketapp.activities;
 
-import static com.example.swichmarketapp.activities.RegisterActivity.USERS_TABLE;
-
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.text.TextUtils;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.swichmarketapp.R;
+import com.example.swichmarketapp.adapter.ChatAdapter;
 import com.example.swichmarketapp.models.ChatMessage;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.example.swichmarketapp.utlities.CacheUtilities;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class MessengerActivity extends AppCompatActivity {
-    private EditText mSendMessage;
-    private  FloatingActionButton mFab;
-    private final DatabaseReference mDbUser = FirebaseDatabase.getInstance().getReference(USERS_TABLE);
+    public static final String SEND_TO_KEY = "send_to";
+    public static final String KEY_COLLECTION_CHAT = "Chat";
+    public static final String KEY_SEND_TO = "send_to";
+    public static final String KEY_FROM_MSG = "from";
+    public static final String KEY_MSG = "message";
+
+    private String mToUser;
+    private List<ChatMessage> mChatMessages;
+    private ChatAdapter mChatAdapter;
+    private RecyclerView mRecyclerView;
+    private EditText mMsgEditText;
+    private ImageView mSendMsgImageView;
+    private final FirebaseFirestore mDb = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
+        mToUser = getIntent().getStringExtra(SEND_TO_KEY);
         initViews();
+        listenMessages();
+    }
+
+    private void listenMessages() {
+        mDb.collection(KEY_COLLECTION_CHAT).whereEqualTo(KEY_SEND_TO, CacheUtilities.getUserName(this))
+                .whereEqualTo(KEY_FROM_MSG, mToUser).addSnapshotListener(eventListener);
+        mDb.collection(KEY_COLLECTION_CHAT).whereEqualTo(KEY_SEND_TO, mToUser)
+                .whereEqualTo(KEY_FROM_MSG, CacheUtilities.getUserName(this)).addSnapshotListener(eventListener);
 
     }
+
+    private final EventListener<QuerySnapshot> eventListener = (value, error) -> {
+        if (error != null) {
+            return;
+        }
+        if (value != null) {
+            int count = mChatMessages.size();
+            for (DocumentChange documentChange : value.getDocumentChanges()) {
+                if (documentChange.getType() == DocumentChange.Type.ADDED) {
+                    ChatMessage chatMessage = new ChatMessage();
+                    chatMessage.senderId = documentChange.getDocument().getString(KEY_SEND_TO);
+                    chatMessage.reciverId = documentChange.getDocument().getString(KEY_FROM_MSG);
+                    chatMessage.message = documentChange.getDocument().getString(KEY_MSG);
+                    mChatMessages.add(chatMessage);
+                }
+            }
+            if (count == 0) {
+                mChatAdapter.notifyDataSetChanged();
+            } else {
+                mChatAdapter.notifyItemRangeChanged(mChatMessages.size(), mChatMessages.size());
+                mRecyclerView.smoothScrollToPosition(mChatMessages.size());
+            }
+        }
+    };
+
 
     private void initViews() {
-        mSendMessage = findViewById(R.id.editTextWireHereMessage);
-        mSendMessage.setOnClickListener(v -> sendMessage ());
-        mFab = (FloatingActionButton)findViewById(R.id.fab);
-        mFab.setOnClickListener(v -> sendMessage());
-
+        TextView header = findViewById(R.id.header);
+        header.setText(mToUser);
+        mMsgEditText = findViewById(R.id.msgEditBox);
+        mRecyclerView = findViewById(R.id.recycler_view);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mChatMessages = new ArrayList<>();
+        mChatAdapter = new ChatAdapter(mChatMessages, mToUser);
+        mRecyclerView.setAdapter(mChatAdapter);
+        mSendMsgImageView = findViewById(R.id.send_msg_button);
+        mSendMsgImageView.setOnClickListener(v -> sendMessage());
     }
 
-    private void sendMessage() {
-        mFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                EditText input = (EditText)findViewById(R.id.editTextWireHereMessage);
-                // Read the input field and push a new instance
-                // of ChatMessage to the Firebase database
-                mDbUser.child(FirebaseAuth.getInstance().getUid()).push().setValue(new ChatMessage(input.getText().toString(),
-                                FirebaseAuth.getInstance().getCurrentUser().getDisplayName())
-                        );
-                // Clear the input bar
-                input.setText("");
-            }
-        });
 
+    private void sendMessage() {
+        String msg = mMsgEditText.getText().toString();
+        if (!TextUtils.isEmpty(msg)) {
+            HashMap<String, Object> message = new HashMap<>();
+            message.put(KEY_SEND_TO, mToUser);
+            message.put(KEY_FROM_MSG, CacheUtilities.getUserName(this));
+            message.put(KEY_MSG, msg);
+            mDb.collection(KEY_COLLECTION_CHAT).add(message);
+            mMsgEditText.setText(null);
+        }
     }
 
 

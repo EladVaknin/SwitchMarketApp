@@ -22,7 +22,6 @@ import com.google.firebase.database.FirebaseDatabase;
 public class RegisterActivity extends AppCompatActivity {
 
     public static final String USERS_TABLE = "users";
-    //    public static final String ITEM_TABLE = "items";
     private EditText mUserNameEditText, mPasswordEditText, mEmailEditText, mPhoneEditText;
     private Button mRegisterButton;
     private ProgressBar mProgressBar;
