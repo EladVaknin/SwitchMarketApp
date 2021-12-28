@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,7 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SwitchActivity extends AppCompatActivity implements ItemRecyclerAdapter.ItemClickListener {
+public class ClodMessengerActivity extends AppCompatActivity implements ItemRecyclerAdapter.ItemClickListener {
     private static final String TAG = "SearchActivity";
     private EditText mSearchEditText;
     private Button mSearchButton;
@@ -41,16 +42,16 @@ public class SwitchActivity extends AppCompatActivity implements ItemRecyclerAda
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_toswitch);
+        setContentView(R.layout.activity_cloudmessanger);
         initViews();
     }
 
 
     private void initViews() {
         mProgressBar = findViewById(R.id.progressBar);
-        mSearchEditText = findViewById(R.id.switch_edit_text);
+        mSearchEditText = findViewById(R.id.search_edit_text);
         mSearchButton = findViewById(R.id.search_button);
         mSearchButton.setOnClickListener(v -> performSearch());
         mRecyclerView = findViewById(R.id.recycler_view);
@@ -69,7 +70,7 @@ public class SwitchActivity extends AppCompatActivity implements ItemRecyclerAda
 
     private void performSearch() {
         recyclerViewShow(false);
-        final String toSwitchString = mSearchEditText.getText().toString();
+        final String searchString = mSearchEditText.getText().toString();
         mDbUser.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -77,14 +78,14 @@ public class SwitchActivity extends AppCompatActivity implements ItemRecyclerAda
                 for (DataSnapshot user : dataSnapshot.getChildren()) {
                     if (user.child("items").exists()) {
                         for (DataSnapshot item : user.child("items").getChildren()) {
-                            String toSwitch1 = (String) item.child("toSwitch").getValue();
-                            Log.d(TAG, "Description -" + toSwitch1);
-                            if (toSwitch1.contains(toSwitchString)) {
+                            String description = (String) item.child("desc").getValue();
+                            Log.d(TAG, "Description -" + description);
+                            if (description.contains(searchString)) {
                                 String price = (String) item.child("price").getValue();
                                 String imageUrl = (String) item.child("imageItem").getValue();
                                 String toSwitch = (String) item.child("toSwitch").getValue();
                                 String userName = (String) user.child("userName").getValue();
-                                itemList.add(new Item(toSwitch1, imageUrl, toSwitch, price, userName));
+                                itemList.add(new Item(description, imageUrl, toSwitch, price, userName));
                             }
                         }
 
@@ -104,10 +105,24 @@ public class SwitchActivity extends AppCompatActivity implements ItemRecyclerAda
 
     @Override
     public void onItemClick(Item item) {
-        Intent intent = new Intent(SwitchActivity.this, MessengerActivity.class);
+        Intent intent = new Intent(ClodMessengerActivity.this, MessengerActivity.class);
         intent.putExtra(MessengerActivity.SEND_TO_KEY, item.getUser());
         startActivity(intent);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -130,6 +145,13 @@ public class SwitchActivity extends AppCompatActivity implements ItemRecyclerAda
         if(id==R.id.nav_mainpage)
         {
             Intent intent=new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+            return true;
+        }
+        if(id==R.id.nav_messanger)
+        {
+            Intent intent=new Intent(this, ClodMessengerActivity.class);
             startActivity(intent);
             finish();
             return true;
@@ -162,13 +184,6 @@ public class SwitchActivity extends AppCompatActivity implements ItemRecyclerAda
             finish();
             return true;
         }
-        if(id==R.id.nav_messanger)
-        {
-            Intent intent=new Intent(this, ClodMessengerActivity.class);
-            startActivity(intent);
-            finish();
-            return true;
-        }
         if(id==R.id.nav_logout)
         {
             FirebaseAuth.getInstance().signOut();
@@ -179,5 +194,4 @@ public class SwitchActivity extends AppCompatActivity implements ItemRecyclerAda
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

@@ -52,6 +52,13 @@ public class AboutAsActivity extends AppCompatActivity {
             finish();
             return true;
         }
+        if(id==R.id.nav_messanger)
+        {
+            Intent intent=new Intent(this, ClodMessengerActivity.class);
+            startActivity(intent);
+            finish();
+            return true;
+        }
         if(id==R.id.nav_toswitch)
         {
             Intent intent=new Intent(this, SwitchActivity.class);

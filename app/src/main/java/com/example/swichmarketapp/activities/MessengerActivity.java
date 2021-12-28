@@ -153,6 +153,13 @@ public class MessengerActivity extends AppCompatActivity {
             finish();
             return true;
         }
+        if(id==R.id.nav_messanger)
+        {
+            Intent intent=new Intent(this, ClodMessengerActivity.class);
+            startActivity(intent);
+            finish();
+            return true;
+        }
         if(id==R.id.nav_aboutas)
         {
             Intent intent=new Intent(this, AboutAsActivity.class);

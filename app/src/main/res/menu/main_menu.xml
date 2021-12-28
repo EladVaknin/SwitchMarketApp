@@ -14,6 +14,10 @@
         android:title="Search"
         app:showAsAction="never"/>
     <item
+        android:id="@+id/nav_messanger"
+        android:title="Messaenger"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/nav_profile"
         android:title="Profile"
         app:showAsAction="never"/>

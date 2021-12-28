@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         mSearchButton = findViewById(R.id.search_button);
         mAddItemButton = findViewById(R.id.add_item_button);
         mToSwitch = findViewById(R.id.toSwitch_button);
-        mChat.setOnClickListener(v -> redirectToActivity(MessengerActivity.class));
+        mChat.setOnClickListener(v -> redirectToActivity(ClodMessengerActivity.class));
         mProfileButton.setOnClickListener(v -> redirectToActivity(ProfileActivity.class));
         mLogoutButton.setOnClickListener(v -> redirectToLogout());
         mSearchButton.setOnClickListener(v ->  redirectToActivity(SearchActivity.class));
@@ -96,6 +96,13 @@ public class MainActivity extends AppCompatActivity {
         if(id==R.id.nav_toswitch)
         {
             Intent intent=new Intent(this, SwitchActivity.class);
+            startActivity(intent);
+            finish();
+            return true;
+        }
+        if(id==R.id.nav_messanger)
+        {
+            Intent intent=new Intent(this, ClodMessengerActivity.class);
             startActivity(intent);
             finish();
             return true;
