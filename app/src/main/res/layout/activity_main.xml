@@ -23,7 +23,8 @@
         android:layout_below="@+id/logo_image"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="Chat" />
+        android:text="Massenger" />
+
 
 
     <RelativeLayout
@@ -52,10 +53,19 @@
 
 
     <Button
-        android:id="@+id/profile_button"
+        android:id="@+id/toSwitch_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/rel1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="To Switch ! " />
+
+    <Button
+        android:id="@+id/profile_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toSwitch_button"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:text="Profile" />

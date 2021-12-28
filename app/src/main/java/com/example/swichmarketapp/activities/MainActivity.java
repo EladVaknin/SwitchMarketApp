@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private Button mSearchButton, mProfileButton, mLogoutButton, mAddItemButton, mChat, mUpdateToPremiumButton;
-
+    private Button mToSwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,28 +26,25 @@ public class MainActivity extends AppCompatActivity {
 
     private void initViews() {
         mChat = findViewById(R.id.chat_button);
-        mChat.setOnClickListener(v -> redirectToActivity(MessengerActivity.class));
         mUpdateToPremiumButton = findViewById(R.id.update_to_premium_user_button);
         mLogoutButton = findViewById(R.id.logout_button);
         mProfileButton = findViewById(R.id.profile_button);
         mSearchButton = findViewById(R.id.search_button);
         mAddItemButton = findViewById(R.id.add_item_button);
-        mProfileButton.setOnClickListener(v -> redirectToProfileScreen());
+        mToSwitch = findViewById(R.id.toSwitch_button);
+        mChat.setOnClickListener(v -> redirectToActivity(MessengerActivity.class));
+        mProfileButton.setOnClickListener(v -> redirectToActivity(ProfileActivity.class));
         mLogoutButton.setOnClickListener(v -> redirectToLogout());
-        mSearchButton.setOnClickListener(v -> redirectToSearch());
-        mAddItemButton.setOnClickListener(v -> redirectToAddItemScreen());
-        mUpdateToPremiumButton.setOnClickListener(v -> redirectToPremiumRegister());
+        mSearchButton.setOnClickListener(v ->  redirectToActivity(SearchActivity.class));
+        mAddItemButton.setOnClickListener(v ->  redirectToActivity(ItemActivity.class));
+        mUpdateToPremiumButton.setOnClickListener(v ->  redirectToActivity(RegisterPremiumActivity.class));
+        mToSwitch.setOnClickListener(v -> redirectToActivity(SearchActivity.class));
+
     }
 
 
     private void redirectToActivity(Class<?> cls) {
         Intent intent = new Intent(MainActivity.this, cls);
-        startActivity(intent);
-    }
-
-
-    public void redirectToProfileScreen() {
-        Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
         startActivity(intent);
     }
 
@@ -58,21 +55,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
-    public void redirectToSearch() {
-        Intent intent = new Intent(MainActivity.this, SearchActivity.class);
-        startActivity(intent);
-    }
-
-    public void redirectToAddItemScreen() {
-        Intent intent = new Intent(MainActivity.this, ItemActivity.class);
-        startActivity(intent);
-    }
-
-    public void redirectToPremiumRegister() {
-        Intent intent = new Intent(MainActivity.this, RegisterPremiumActivity.class);
-        startActivity(intent);
-    }
-
 
 }
