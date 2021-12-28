@@ -47,7 +47,7 @@ public class SwitchActivity extends AppCompatActivity implements ItemRecyclerAda
 
     private void initViews() {
         mProgressBar = findViewById(R.id.progressBar);
-        mSearchEditText = findViewById(R.id.search_edit_text);
+        mSearchEditText = findViewById(R.id.switch_edit_text);
         mSearchButton = findViewById(R.id.search_button);
         mSearchButton.setOnClickListener(v -> performSearch());
         mRecyclerView = findViewById(R.id.recycler_view);
@@ -66,7 +66,7 @@ public class SwitchActivity extends AppCompatActivity implements ItemRecyclerAda
 
     private void performSearch() {
         recyclerViewShow(false);
-        final String searchString = mSearchEditText.getText().toString();
+        final String toSwitchString = mSearchEditText.getText().toString();
         mDbUser.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -74,14 +74,14 @@ public class SwitchActivity extends AppCompatActivity implements ItemRecyclerAda
                 for (DataSnapshot user : dataSnapshot.getChildren()) {
                     if (user.child("items").exists()) {
                         for (DataSnapshot item : user.child("items").getChildren()) {
-                            String description = (String) item.child("toSwitch").getValue();
-//                            Log.d(TAG, "Description -" + description);
-                            if (description.contains(searchString)) {
+                            String toSwitch1 = (String) item.child("toSwitch").getValue();
+                            Log.d(TAG, "Description -" + toSwitch1);
+                            if (toSwitch1.contains(toSwitchString)) {
                                 String price = (String) item.child("price").getValue();
                                 String imageUrl = (String) item.child("imageItem").getValue();
                                 String toSwitch = (String) item.child("toSwitch").getValue();
                                 String userName = (String) user.child("userName").getValue();
-                                itemList.add(new Item(description, imageUrl, toSwitch, price, userName));
+                                itemList.add(new Item(toSwitch1, imageUrl, toSwitch, price, userName));
                             }
                         }
 

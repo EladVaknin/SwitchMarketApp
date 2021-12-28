@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         mSearchButton.setOnClickListener(v ->  redirectToActivity(SearchActivity.class));
         mAddItemButton.setOnClickListener(v ->  redirectToActivity(ItemActivity.class));
         mUpdateToPremiumButton.setOnClickListener(v ->  redirectToActivity(RegisterPremiumActivity.class));
-        mToSwitch.setOnClickListener(v -> redirectToActivity(SearchActivity.class));
+        mToSwitch.setOnClickListener(v -> redirectToActivity(SwitchActivity.class));
 
     }
 
