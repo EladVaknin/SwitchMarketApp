@@ -25,6 +25,7 @@
         <activity android:name=".activities.SearchActivity" />
         <activity android:name=".activities.SwitchActivity" />
         <activity android:name=".activities.MessengerActivity" />
+        <activity android:name=".activities.AboutAsActivity" />
     </application>
 
 </manifest>
