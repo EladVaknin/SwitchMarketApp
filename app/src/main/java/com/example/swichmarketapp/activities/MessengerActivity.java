@@ -41,6 +41,7 @@ public class MessengerActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private EditText mMsgEditText;
     private ImageView mSendMsgImageView;
+    private ImageView mRatingButton;
     private final FirebaseFirestore mDb = FirebaseFirestore.getInstance();
 
     @Override
@@ -86,6 +87,7 @@ public class MessengerActivity extends AppCompatActivity {
 
 
     private void initViews() {
+        mRatingButton = findViewById(R.id.rating_button);
         TextView header = findViewById(R.id.header);
         header.setText(mToUser);
         mMsgEditText = findViewById(R.id.msgEditBox);
@@ -96,6 +98,7 @@ public class MessengerActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mChatAdapter);
         mSendMsgImageView = findViewById(R.id.send_msg_button);
         mSendMsgImageView.setOnClickListener(v -> sendMessage());
+        mRatingButton.setOnClickListener(v -> redirectToActivity(RatingProfileActivity.class));
     }
 
 
@@ -110,6 +113,14 @@ public class MessengerActivity extends AppCompatActivity {
             mMsgEditText.setText(null);
         }
     }
+
+
+    private void redirectToActivity(Class<?> cls) {
+        Intent intent = new Intent(MessengerActivity.this, cls);
+        startActivity(intent);
+    }
+
+
 
 
 

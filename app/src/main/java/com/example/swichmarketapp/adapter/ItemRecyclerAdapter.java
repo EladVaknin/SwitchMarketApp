@@ -1,6 +1,7 @@
 package com.example.swichmarketapp.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.swichmarketapp.R;
+import com.example.swichmarketapp.activities.MainActivity;
 import com.example.swichmarketapp.models.Item;
 import com.example.swichmarketapp.utlities.CacheUtilities;
 import com.squareup.picasso.Picasso;
@@ -23,6 +25,7 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
     private final List<Item> mData = new ArrayList<>();
     private final LayoutInflater mInflater;
     private ItemClickListener mClickListener;
+    private ItemClickListener mClickListener2;
 
     // data is passed into the constructor
     public ItemRecyclerAdapter(Context context) {
@@ -81,6 +84,7 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
             mDecriptionTextView = itemView.findViewById(R.id.description_edit_text);
             mToSwitchTextView = itemView.findViewById(R.id.to_switch_text);
             mChatButton.setOnClickListener(v -> mClickListener.onItemClick(mData.get(getAdapterPosition())));
+
         }
     }
 
@@ -94,4 +98,5 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
     public interface ItemClickListener {
         void onItemClick(Item item);
     }
+
 }

@@ -9,7 +9,17 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="Nadav" />
+        android:text="elad" />
+
+    <ImageView
+        android:id="@+id/rating_button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="26dp"
+        android:background="@drawable/rating" />
 
     <View
         android:id="@+id/seperator"

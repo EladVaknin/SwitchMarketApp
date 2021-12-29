@@ -27,6 +27,7 @@
         <activity android:name=".activities.MessengerActivity" />
         <activity android:name=".activities.AboutAsActivity" />
         <activity android:name=".activities.ClodMessengerActivity" />
+        <activity android:name=".activities.RatingProfileActivity" />
     </application>
 
 </manifest>
