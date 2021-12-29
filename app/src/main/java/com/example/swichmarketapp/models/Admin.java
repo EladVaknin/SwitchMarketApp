@@ -7,11 +7,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.swichmarketapp.R;
 
 public class Admin extends AppCompatActivity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin);
-    }
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_admin);
+//    }
 
 
 }

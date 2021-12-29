@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.swichmarketapp.R;
+import com.example.swichmarketapp.models.Admin;
 import com.example.swichmarketapp.utlities.CacheUtilities;
 import com.example.swichmarketapp.utlities.Utilitie;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -49,12 +50,19 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void performLogin() {
+        String Admin = "Admin@gmail.com";
+        String adminPassword = "12345678";
         String email = mEmailEditText.getText().toString().trim();
         String password = mPasswordEditText.getText().toString().trim();
         if (Utilitie.isEmailAndPasswordValid(this, email, password)) {
             mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
                 if(task.isSuccessful()){
-                    getUserDetailsFromFireBaseAndRedirectToMainActivity();
+                    if (email.equals(Admin)&&password.equals(adminPassword)){
+                        redirectToAdminScreen();
+                    }
+                    else{
+                        getUserDetailsFromFireBaseAndRedirectToMainActivity();
+                }
                 }
             });
         }
@@ -71,6 +79,10 @@ public class LoginActivity extends AppCompatActivity {
 
     public void redirectToRegisterScreen() {
         Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+        startActivity(intent);
+    }
+    public void redirectToAdminScreen() {
+        Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
         startActivity(intent);
     }
 
