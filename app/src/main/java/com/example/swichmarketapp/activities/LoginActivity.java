@@ -2,14 +2,19 @@ package com.example.swichmarketapp.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.swichmarketapp.R;
+import com.example.swichmarketapp.adapter.ItemRecyclerAdapter;
 import com.example.swichmarketapp.models.Admin;
+import com.example.swichmarketapp.models.Item;
 import com.example.swichmarketapp.utlities.CacheUtilities;
 import com.example.swichmarketapp.utlities.Utilitie;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,11 +27,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LoginActivity extends AppCompatActivity {
 
     private final DatabaseReference mDbUser = FirebaseDatabase.getInstance().getReference(RegisterActivity.USERS_TABLE);
     private Button mLoginButton, mRegisterButton, mUpdateToPremiumButtonLogin;
     private EditText mEmailEditText, mPasswordEditText;
+    private ItemRecyclerAdapter mAdapter;
+    private RecyclerView mRecyclerView;
 
     private final FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
@@ -101,7 +111,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (userSnapshot.child("profileUrl").exists()) {
                     CacheUtilities.cacheImageProfile(LoginActivity.this, (String) userSnapshot.child("profileUrl").getValue());
                 }
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), SearchActivity.class));
                 finish();
             }
 
@@ -112,8 +122,6 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
-
-
 }
 
 
