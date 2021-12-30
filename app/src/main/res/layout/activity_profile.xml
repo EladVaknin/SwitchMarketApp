@@ -32,6 +32,8 @@
         android:layout_marginTop="20dp"
         android:text="UserName:"
         android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
         android:textSize="20sp" />
 
 
@@ -44,6 +46,8 @@
         android:layout_marginTop="20dp"
         android:text="PhoneNumber:"
         android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
         android:textSize="20sp" />
 
 
