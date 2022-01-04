@@ -30,6 +30,6 @@
 - חבר את מכשיר האנדרואיד שלך למחשב.
 - פתח את הפרוייקט באמצעות android studio והפעל את האפליקציה. 
 
-### MIT License :
+## MIT License :
 https://choosealicense.com/licenses/mit/
 
