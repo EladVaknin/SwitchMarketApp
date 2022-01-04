@@ -1,5 +1,5 @@
 ![image](https://user-images.githubusercontent.com/74238558/148085187-8c59cdab-c0aa-4ce4-ac11-9d0ca9209802.png)
-# My app - Switch Mareket : 
+# My app - Switch Market : 
 
 **תיאור המערכת :** 
 
