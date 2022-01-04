@@ -161,6 +161,13 @@ public class ClodMessengerActivity extends AppCompatActivity implements UserAdap
     }
 
 
+
+
+
+
+
+
+
     // navigation menu items
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
