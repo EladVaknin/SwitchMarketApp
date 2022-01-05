@@ -29,6 +29,7 @@
         <activity android:name=".activities.ClodMessengerActivity" />
         <activity android:name=".activities.RatingProfileActivity" />
         <activity android:name=".activities.AdminActivity" />
+        <activity android:name=".activities.MyItemsActivity" />
     </application>
 
 </manifest>

@@ -50,6 +50,7 @@ public class RatingProfileActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), s + " Stars", Toast.LENGTH_SHORT).show();
                 DatabaseReference db = FirebaseDatabase.getInstance().getReference("users").child(id_cur);
                 DatabaseReference user = FirebaseDatabase.getInstance().getReference("users");
+                id_cur = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 DatabaseReference user1 = user.child(id_cur);
                 DatabaseReference rate = user1.child("rating");
                 DatabaseReference countrate = user1.child("counter");

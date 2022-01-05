@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.MimeTypeMap;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -36,6 +37,7 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView mFullName, mPhone;
     private ImageView mPictureImageView;
     private RatingBar mRating;
+    private Button mMyItems;
     private final DatabaseReference mDbUser = FirebaseDatabase.getInstance().getReference(USERS_TABLE);
 
 
@@ -47,6 +49,8 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void initViews() {
+        mMyItems = findViewById(R.id.MyItemsButton);
+        mMyItems.setOnClickListener(v -> redictToMyItems ());
         mPictureImageView = findViewById(R.id.profile_image_view);
         mPictureImageView.setOnClickListener(v -> choosePictureFromGalleryAndUploadToTheFireBase());
         if (!TextUtils.isEmpty(CacheUtilities.getImageProfile(this))) {
@@ -58,6 +62,12 @@ public class ProfileActivity extends AppCompatActivity {
         mPhone.setText(mPhone.getText() + CacheUtilities.getPhoneNumber(this));
         mRating = findViewById(R.id.rating_bar);
         mRating.setRating((float) CacheUtilities.getRating(this));
+
+    }
+
+    private void redictToMyItems() {
+        Intent intent = new Intent(ProfileActivity.this, MyItemsActivity.class);
+        startActivity(intent);
 
     }
 
