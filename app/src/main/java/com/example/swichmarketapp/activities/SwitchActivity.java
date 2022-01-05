@@ -78,13 +78,14 @@ public class SwitchActivity extends AppCompatActivity implements ItemRecyclerAda
                     if (user.child("items").exists()) {
                         for (DataSnapshot item : user.child("items").getChildren()) {
                             String toSwitch1 = (String) item.child("toSwitch").getValue();
+                            String description = (String) item.child("desc").getValue();
                             Log.d(TAG, "Description -" + toSwitch1);
                             if (toSwitch1.contains(toSwitchString)) {
                                 String price = (String) item.child("price").getValue();
                                 String imageUrl = (String) item.child("imageItem").getValue();
                                 String toSwitch = (String) item.child("toSwitch").getValue();
                                 String userName = (String) user.child("userName").getValue();
-                                itemList.add(new Item(toSwitch1, imageUrl, toSwitch, price, userName));
+                                itemList.add(new Item(description, imageUrl, toSwitch, price, userName));
                             }
                         }
 
