@@ -18,6 +18,10 @@
         android:title="Messaenger"
         app:showAsAction="never"/>
     <item
+        android:id="@+id/nav_additem"
+        android:title="Add item"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/nav_profile"
         android:title="Profile"
         app:showAsAction="never"/>

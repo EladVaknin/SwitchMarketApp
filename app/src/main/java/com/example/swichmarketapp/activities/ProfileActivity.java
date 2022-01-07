@@ -161,6 +161,13 @@ public class ProfileActivity extends AppCompatActivity {
             finish();
             return true;
         }
+        if(id==R.id.nav_additem)
+        {
+            Intent intent=new Intent(this, ItemActivity.class);
+            startActivity(intent);
+            finish();
+            return true;
+        }
         if(id==R.id.nav_logout)
         {
             FirebaseAuth.getInstance().signOut();

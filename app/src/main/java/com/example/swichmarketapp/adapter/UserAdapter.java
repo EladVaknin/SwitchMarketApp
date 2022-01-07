@@ -80,8 +80,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ItemViewHolder
             mUserName = itemView.findViewById(R.id.userNameTextView);
             mUserName.setOnClickListener(v -> mClickListener.onUserClicked(mData.get(getAdapterPosition())));
         }
-
-
     }
 
 

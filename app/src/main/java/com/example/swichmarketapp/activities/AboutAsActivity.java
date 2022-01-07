@@ -52,6 +52,13 @@ public class AboutAsActivity extends AppCompatActivity {
             finish();
             return true;
         }
+        if(id==R.id.nav_additem)
+        {
+            Intent intent=new Intent(this, ItemActivity.class);
+            startActivity(intent);
+            finish();
+            return true;
+        }
         if(id==R.id.nav_messanger)
         {
             Intent intent=new Intent(this, ClodMessengerActivity.class);

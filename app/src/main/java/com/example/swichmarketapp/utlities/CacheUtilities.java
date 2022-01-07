@@ -11,7 +11,6 @@ public class CacheUtilities {
     public static final String PHONE_NUMBER_KEY = "phoneNumber";
     public static final String IMAGE_PROFILE_KEY = "imageProfile";
     public static final String RATING_KEY = "ratingKey";
-
     public static final String USER_FILE = "user";
 
 
@@ -38,7 +37,6 @@ public class CacheUtilities {
         return prefs.getString(PHONE_NUMBER_KEY, "");
 
     }
-
 
     public static void cacheImageProfile(Activity activity, String imageProfile) {
         SharedPreferences.Editor editor = activity.getSharedPreferences(USER_FILE, MODE_PRIVATE).edit();

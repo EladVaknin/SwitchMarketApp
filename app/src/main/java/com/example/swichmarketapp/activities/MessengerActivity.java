@@ -102,6 +102,8 @@ public class MessengerActivity extends AppCompatActivity {
     }
 
 
+
+
     private void sendMessage() {
         String msg = mMsgEditText.getText().toString();
         if (!TextUtils.isEmpty(msg)) {
@@ -146,6 +148,13 @@ public class MessengerActivity extends AppCompatActivity {
         if(id==R.id.nav_profile)
         {
             Intent intent=new Intent(this, ProfileActivity.class);
+            startActivity(intent);
+            finish();
+            return true;
+        }
+        if(id==R.id.nav_additem)
+        {
+            Intent intent=new Intent(this, ItemActivity.class);
             startActivity(intent);
             finish();
             return true;
